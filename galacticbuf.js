@@ -67,8 +67,10 @@ function encodeListValue(arr) {
     throw new Error('List too long');
   }
   if (len === 0) {
+    // Пустой список кодируем как список объектов с 0 элементов,
+    // чтобы такие поля как `trades` имели тип "list of objects"
     const header = Buffer.alloc(3);
-    header.writeUInt8(TYPE_INT, 0);
+    header.writeUInt8(TYPE_OBJECT, 0);  // 0x04
     header.writeUInt16BE(0, 1);
     return header;
   }
