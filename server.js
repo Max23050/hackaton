@@ -3,6 +3,10 @@ const { encodeMessage, decodeMessage } = require('./galacticbuf');
 
 const app = express();
 
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Нам нужен "сырой" body, а не JSON
 app.use(express.raw({ type: 'application/octet-stream', limit: '1mb' }));
 
