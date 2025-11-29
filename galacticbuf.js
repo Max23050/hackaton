@@ -1,5 +1,3 @@
-// galacticbuf.js
-// Реализация протокола GalacticBuf для Node.js
 
 const VERSION = 0x01;
 
@@ -69,7 +67,6 @@ function encodeListValue(arr) {
     throw new Error('List too long');
   }
   if (len === 0) {
-    // Для простоты: пустой список считаем списком int
     const header = Buffer.alloc(3);
     header.writeUInt8(TYPE_INT, 0);
     header.writeUInt16BE(0, 1);
@@ -168,7 +165,7 @@ function bigIntToJs(bi) {
   if (bi >= min && bi <= max) {
     return Number(bi);
   }
-  return bi; // вернем BigInt если слишком большое
+  return bi; 
 }
 
 function readIntValue(buf, offset) {
@@ -265,7 +262,6 @@ function decodeMessage(buf) {
   const totalLength = buf.readUInt16BE(2);
 
   if (totalLength !== buf.length) {
-    // Можно сделать мягче (>=), но по спецификации должно совпадать.
     throw new Error(`Length mismatch: header=${totalLength}, actual=${buf.length}`);
   }
 

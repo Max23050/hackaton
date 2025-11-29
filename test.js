@@ -1,6 +1,5 @@
 const { encodeMessage, decodeMessage } = require('./galacticbuf');
 
-// Пример 1
 const msg1 = {
   user_id: 1001,
   name: 'Alice',
@@ -11,7 +10,6 @@ const buf1 = encodeMessage(msg1);
 console.log('hex msg1:', buf1.toString('hex'));
 console.log('decoded msg1:', decodeMessage(buf1));
 
-// Пример 2
 const msg2 = {
   timestamp: 1698765432,
   trades: [

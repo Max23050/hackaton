@@ -1,4 +1,3 @@
-// galacticbuf.test.js
 const test = require('node:test');
 const assert = require('node:assert');
 const { encodeMessage, decodeMessage } = require('./galacticbuf');
@@ -26,7 +25,6 @@ test('hex matches example 1', () => {
   const buf = encodeMessage(msg);
   const hex = buf.toString('hex');
 
-  // то, что ты уже получил руками:
   const expectedHex =
     '0103004507757365725f69640100000000000003e9046e616d65020005416c6963650673636f72657303010003000000000000006400000000000000c8000000000000012c';
 

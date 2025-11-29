@@ -2,7 +2,6 @@
 const http = require('http');
 const { encodeMessage, decodeMessage } = require('./galacticbuf');
 
-// Сообщение, которое отправляем на сервер в формате GalacticBuf
 const requestObj = {
   name: 'Alice',
   user_id: 1001,
@@ -41,6 +40,5 @@ req.on('error', (err) => {
   console.error('Request error:', err);
 });
 
-// отправляем бинарное тело
 req.write(body);
 req.end();

@@ -11,7 +11,6 @@ app.post('/example', (req, res) => {
     const incoming = decodeMessage(req.body);
     console.log('Incoming GalacticBuf:', incoming);
 
-    // Делаем какой-то ответ
     const responseObj = {
       ok: 1,
       echo_name: incoming.name || 'unknown',
